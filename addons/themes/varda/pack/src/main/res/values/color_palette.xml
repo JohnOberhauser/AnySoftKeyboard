@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="varda_black">#0C0E11</color>
+    <color name="varda_white">#D0EBEE</color>
+    <color name="varda_red">#733447</color>
+    <color name="varda_green">#257B76</color>
+    <color name="varda_white_transparent">#99D0EBEE</color>
+    <color name="varda_black_highlighted">#1C1E21</color>
+    <color name="varda_shadow">#BB0C0E11</color>
+    <color name="varda_highlight">#44D0EBEE</color>
+</resources>

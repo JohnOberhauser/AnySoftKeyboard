@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<KeyboardThemes>
+    <KeyboardTheme
+        id="b5c6bcc0-63b0-11e1-7634-0800200c9001"
+        nameResId="@string/varda_1_theme_name"
+        themeRes="@style/VardaRed"
+        popupThemeRes="@style/VardaPopup"
+        description="@string/varda_1_description"
+        index="1"/>
+
+    <KeyboardTheme
+        id="b5c6bcc0-63b0-11e1-7634-0800200c9002"
+        nameResId="@string/varda_2_theme_name"
+        themeRes="@style/VardaGreen"
+        popupThemeRes="@style/VardaPopup"
+        description="@string/varda_2_description"
+        index="2"/>
+</KeyboardThemes>

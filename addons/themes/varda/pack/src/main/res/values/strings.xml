@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="varda_1_theme_name">Varda Theme 1</string>
+    <string name="varda_1_description">Dark theme with red accent</string>
+
+    <string name="varda_2_theme_name">Varda Theme 2</string>
+    <string name="varda_2_description">Dark theme with green accent</string>
+    
+</resources>
