@@ -55,6 +55,7 @@
         <item name="keyTextStyle">bold</item>
         <item name="keyTextColor">@color/varda_white</item>
         <item name="labelTextSize">@dimen/key_label_text_size</item>
+        <item name="hintTextSize">@dimen/key_hint_text_size</item>
         
         <item name="shadowColor">@color/varda_shadow</item>
         <item name="shadowRadius">0px</item>
