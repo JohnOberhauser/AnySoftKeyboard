@@ -5,6 +5,21 @@
     <string name="varda_1_description">Dark theme with red accent</string>
 
     <string name="varda_2_theme_name">Varda Theme 2</string>
-    <string name="varda_2_description">Dark theme with green accent</string>
+    <string name="varda_2_description">Dark theme with light red accent</string>
+
+    <string name="varda_3_theme_name">Varda Theme 3</string>
+    <string name="varda_3_description">Dark theme with green accent</string>
+
+    <string name="varda_4_theme_name">Varda Theme 4</string>
+    <string name="varda_4_description">Dark theme with light green accent</string>
+
+    <string name="varda_5_theme_name">Varda Theme 5</string>
+    <string name="varda_5_description">Dark theme with blue accent</string>
+
+    <string name="varda_6_theme_name">Varda Theme 6</string>
+    <string name="varda_6_description">Dark theme with light blue accent</string>
+
+    <string name="varda_7_theme_name">Varda Theme 7</string>
+    <string name="varda_7_description">Dark theme with no accent</string>
     
 </resources>

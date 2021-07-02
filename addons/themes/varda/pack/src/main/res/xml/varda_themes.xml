@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <KeyboardThemes>
+
     <KeyboardTheme
         id="b5c6bcc0-63b0-11e1-7630-0800200c9001"
         nameResId="@string/varda_1_theme_name"
@@ -12,9 +13,55 @@
     <KeyboardTheme
         id="b5c6bcc0-63b0-11e1-7630-0800200c9002"
         nameResId="@string/varda_2_theme_name"
-        themeRes="@style/VardaGreen"
+        themeRes="@style/VardaRedLight"
         iconsThemeRes="@style/VardaIcons"
         popupThemeRes="@style/VardaPopup"
         description="@string/varda_2_description"
         index="2"/>
+
+    <KeyboardTheme
+        id="b5c6bcc0-63b0-11e1-7630-0800200c9003"
+        nameResId="@string/varda_3_theme_name"
+        themeRes="@style/VardaGreen"
+        iconsThemeRes="@style/VardaIcons"
+        popupThemeRes="@style/VardaPopup"
+        description="@string/varda_3_description"
+        index="3"/>
+
+    <KeyboardTheme
+        id="b5c6bcc0-63b0-11e1-7630-0800200c9004"
+        nameResId="@string/varda_4_theme_name"
+        themeRes="@style/VardaGreenLight"
+        iconsThemeRes="@style/VardaIcons"
+        popupThemeRes="@style/VardaPopup"
+        description="@string/varda_4_description"
+        index="4"/>
+
+    <KeyboardTheme
+        id="b5c6bcc0-63b0-11e1-7630-0800200c9005"
+        nameResId="@string/varda_5_theme_name"
+        themeRes="@style/VardaBlue"
+        iconsThemeRes="@style/VardaIcons"
+        popupThemeRes="@style/VardaPopup"
+        description="@string/varda_5_description"
+        index="5"/>
+
+    <KeyboardTheme
+        id="b5c6bcc0-63b0-11e1-7630-0800200c9006"
+        nameResId="@string/varda_6_theme_name"
+        themeRes="@style/VardaBlueLight"
+        iconsThemeRes="@style/VardaIcons"
+        popupThemeRes="@style/VardaPopup"
+        description="@string/varda_6_description"
+        index="6"/>
+
+    <KeyboardTheme
+        id="b5c6bcc0-63b0-11e1-7630-0800200c9007"
+        nameResId="@string/varda_7_theme_name"
+        themeRes="@style/VardaPlain"
+        iconsThemeRes="@style/VardaIcons"
+        popupThemeRes="@style/VardaPopup"
+        description="@string/varda_7_description"
+        index="7"/>
+
 </KeyboardThemes>

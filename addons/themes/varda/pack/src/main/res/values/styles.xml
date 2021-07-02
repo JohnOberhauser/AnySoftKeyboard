@@ -98,11 +98,46 @@
         <item name="suggestionRecommendedTextColor">@color/varda_red</item>
     </style>
 
+    <style name="VardaRedLight" parent="@style/VardaBase">
+        <item name="hintTextColor">@color/varda_red_highlighted</item>
+        <item name="swipeTypingColor">@color/varda_red_highlighted</item>
+        <item name="swipeTypingShadowColor">@color/varda_red_highlighted</item>
+        <item name="suggestionRecommendedTextColor">@color/varda_red_highlighted</item>
+    </style>
+
     <style name="VardaGreen" parent="@style/VardaBase">
         <item name="hintTextColor">@color/varda_green</item>
         <item name="swipeTypingColor">@color/varda_green</item>
         <item name="swipeTypingShadowColor">@color/varda_green</item>
         <item name="suggestionRecommendedTextColor">@color/varda_green</item>
+    </style>
+
+    <style name="VardaGreenLight" parent="@style/VardaBase">
+        <item name="hintTextColor">@color/varda_green_highlighted</item>
+        <item name="swipeTypingColor">@color/varda_green_highlighted</item>
+        <item name="swipeTypingShadowColor">@color/varda_green_highlighted</item>
+        <item name="suggestionRecommendedTextColor">@color/varda_green_highlighted</item>
+    </style>
+
+    <style name="VardaBlue" parent="@style/VardaBase">
+        <item name="hintTextColor">@color/varda_blue</item>
+        <item name="swipeTypingColor">@color/varda_blue</item>
+        <item name="swipeTypingShadowColor">@color/varda_blue</item>
+        <item name="suggestionRecommendedTextColor">@color/varda_blue</item>
+    </style>
+
+    <style name="VardaBlueLight" parent="@style/VardaBase">
+        <item name="hintTextColor">@color/varda_blue_highlighted</item>
+        <item name="swipeTypingColor">@color/varda_blue_highlighted</item>
+        <item name="swipeTypingShadowColor">@color/varda_blue_highlighted</item>
+        <item name="suggestionRecommendedTextColor">@color/varda_blue_highlighted</item>
+    </style>
+
+    <style name="VardaPlain" parent="@style/VardaBase">
+        <item name="hintTextColor">@color/varda_white_darkened</item>
+        <item name="swipeTypingColor">@color/varda_white_darkened</item>
+        <item name="swipeTypingShadowColor">@color/varda_white_darkened</item>
+        <item name="suggestionRecommendedTextColor">@color/varda_white_darkened</item>
     </style>
 
 </resources>
