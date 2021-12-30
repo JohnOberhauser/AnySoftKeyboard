@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
+
 DEPLOYMENT_ENVIRONMENT="${1}"
+shift
+PREVIOUS_DEPLOYMENT_ENVIRONMENT="${1}"
 shift
 DEPLOYMENT_TASK="${1}"
 shift
@@ -43,20 +46,36 @@ echo "Copying secret files..."
 cp "${SECRETS_REPO_FOLDER}/anysoftkeyboard.keystore" /tmp/anysoftkeyboard.keystore
 cp "${SECRETS_REPO_FOLDER}/playstore-publisher-certs.json" /tmp/apk_upload_key.json
 
-DEPLOY_TASKS=( "--rerun-tasks" "--continue" "--stacktrace" "-PwithAutoVersioning" ":generateFdroidYamls" "-DdeployChannel=${DEPLOY_CHANNEL}" "-DdeployFraction=${FRACTION}" )
+echo "Preparing change log files..."
+for f in $(find . -name 'alpha.txt'); do
+  cp $f "$(dirname $f)/beta.txt"
+  cp $f "$(dirname $f)/production.txt"
+done
+
+DEPLOY_ARGS=()
+DEPLOY_TASKS=( "--rerun-tasks" "--continue" "--stacktrace" "-PwithAutoVersioning" ":generateFdroidYamls" )
+if [[ "${FRACTION}" == "1.00" ]]; then
+  DEPLOY_ARGS+=("--release-status" "completed")
+else
+  DEPLOY_ARGS+=("--release-status" "inProgress" "--user-fraction" "${FRACTION}")
+fi
+
 if [[ "${DEPLOYMENT_TASK}" == "deploy" ]]; then
   case "${PROCESS_NAME}" in
 
     imeMaster)
-      DEPLOY_TASKS+=( "ime:app:assembleCanary" "ime:app:publishCanary" )
+      DEPLOY_TASKS+=( "ime:app:assembleCanary" "ime:app:publishCanaryApk" )
+      DEPLOY_ARGS+=( "--track" "${DEPLOY_CHANNEL}" )
       ;;
 
     imeProduction)
-      DEPLOY_TASKS+=( "ime:app:assembleRelease" "ime:app:publishRelease" )
+      DEPLOY_ARGS+=( "--track" "${DEPLOY_CHANNEL}" )
+      DEPLOY_TASKS+=( "ime:app:assembleRelease" "ime:app:publishReleaseApk" )
       ;;
 
     addOns*)
-      DEPLOY_TASKS+=( "assembleRelease" "publishRelease" "-x" "ime:app:assembleRelease" "-x" "ime:app:publishRelease" )
+      DEPLOY_ARGS+=( "--track" "${DEPLOY_CHANNEL}" )
+      DEPLOY_TASKS+=( "assembleRelease" "publishReleaseApk" "-x" "ime:app:assembleRelease" "-x" "ime:app:publishReleaseApk" )
       ;;
 
     *)
@@ -66,26 +85,29 @@ if [[ "${DEPLOYMENT_TASK}" == "deploy" ]]; then
 
   esac
 elif [[ "${DEPLOYMENT_TASK}" == "deploy:migration" ]]; then
+  PREVIOUS_DEPLOY_CHANNEL=$(deployChannelFromEnvironmentName "${PREVIOUS_DEPLOYMENT_ENVIRONMENT}")
   case "${PROCESS_NAME}" in
 
     ime*)
+      DEPLOY_ARGS+=( "--from-track" "${PREVIOUS_DEPLOY_CHANNEL}" "--promote-track" "${DEPLOY_CHANNEL}" )
       DEPLOY_TASKS+=( "ime:app:promoteReleaseArtifact" )
       ;;
 
     addOns*)
+      DEPLOY_ARGS+=( "--from-track" "${PREVIOUS_DEPLOY_CHANNEL}" "--promote-track" "${DEPLOY_CHANNEL}" )
       DEPLOY_TASKS+=( "promoteReleaseArtifact" "-x" "ime:app:promoteReleaseArtifact" )
       ;;
 
   esac
 fi
 
-echo "Counter is ${BUILD_COUNT_FOR_VERSION}, crash email: ${ANYSOFTKEYBOARD_CRASH_REPORT_EMAIL}, and tasks: ${DEPLOY_TASKS[*]}"
+echo "Counter is ${BUILD_COUNT_FOR_VERSION}, crash email: ${ANYSOFTKEYBOARD_CRASH_REPORT_EMAIL}, and tasks: ${DEPLOY_TASKS[*]}, and DEPLOY_ARGS: ${DEPLOY_ARGS[*]}"
 
-./gradlew "${DEPLOY_TASKS[@]}"
+./gradlew "${DEPLOY_TASKS[@]}" "${DEPLOY_ARGS[@]}"
 
 #Making sure no future deployments will happen on this branch.
 if [[ "${FRACTION}" == "1.00" ]] && [[ "${DEPLOY_CHANNEL}" == "production" ]]; then
-  echo "A succesfull full deploy to production has finished."
+  echo "A succesful full deploy to production has finished."
   MARKER_FILE="deployment/halt_deployment_marker"
   if [[ -f "${MARKER_FILE}" ]]; then
     echo "${MARKER_FILE} exits. No need to create another."

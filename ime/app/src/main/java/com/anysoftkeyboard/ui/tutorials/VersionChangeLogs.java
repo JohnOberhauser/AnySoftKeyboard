@@ -14,13 +14,25 @@ public class VersionChangeLogs {
                 new VersionChangeLog(
                         1,
                         11,
+                        "r2",
+                        Uri.parse(
+                                "https://github.com/AnySoftKeyboard/AnySoftKeyboard/milestone/94"),
+                        "Several fixes to the settings app navigation.",
+                        "Updated translations from the community (at crowdin.net)."));
+        log.add(
+                new VersionChangeLog(
+                        1,
+                        11,
                         "r1",
                         Uri.parse(
                                 "https://github.com/AnySoftKeyboard/AnySoftKeyboard/milestone/93"),
                         "Minimum Android version is 4.0.3 (ICS, API level 15).",
+                        "Basic support for OS field auto-fill.",
                         "Better vibration control for newer OS versions.",
                         "Fixes around permission requests.",
                         "Fixes for colorized nav-bar.",
+                        "A few small gesture-typing fixes.",
+                        "Other bug fixes.",
                         "Updated translations from the community."));
         log.add(
                 new VersionChangeLog(
