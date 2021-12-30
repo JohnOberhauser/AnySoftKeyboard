@@ -81,6 +81,7 @@
         <item name="suggestionTextSize">@dimen/candidate_font_height</item>
         <item name="suggestionBackgroundImage">@drawable/background</item>
         <item name="suggestionCloseImage">@drawable/close_suggestions</item>
+        <item name="suggestionSelectionHighlight">@color/varda_black_highlighted</item>
     </style>
 
     <style name="VardaPopup" parent="@style/VardaBase">
